@@ -1,0 +1,25 @@
+{
+  "name": "egerton-commerce-campaign",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/generate-manifesto-pdf.mjs || echo manifesto-pdf-regeneration-skipped",
+    "build": "vite build",
+    "preview": "vite preview",
+    "manifesto": "node scripts/generate-manifesto-pdf.mjs",
+    "test": "node tests/run-tests.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "pdfkit": "^0.15.2",
+    "vite": "^5.4.11"
+  }
+}

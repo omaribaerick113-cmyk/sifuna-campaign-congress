@@ -1,0 +1,55 @@
+/* Mobile-first overrides are in global.css; these rules adapt the layout as screens shrink. */
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .hero-grid { grid-template-columns: 1fr 0.9fr; gap: 2rem; }
+  .nav-link { padding: 0.5rem 0.55rem; font-size: 0.85rem; }
+}
+
+@media (max-width: 900px) {
+  /* Mobile menu */
+  .menu-toggle { display: inline-flex; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0; height: calc(100vh - var(--nav-h)); height: calc(100dvh - var(--nav-h)); flex-direction: column; align-items: stretch; gap: 0.25rem;
+    background: var(--navy-950); padding: 1.25rem 1rem 2rem; overflow-y: auto;
+    transform: translateY(-8px); opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+  .nav-links.is-open { opacity: 1; transform: none; visibility: visible; }
+  .nav-link { font-size: 1.1rem; padding: 0.95rem 1rem; border-radius: 12px; }
+  .nav-cta { margin: 1rem 0 0; min-height: 54px; font-size: 1rem; }
+
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { order: -1; width: min(300px, 78%); }
+  .float-a { left: -0.5rem; }
+  .float-b { right: -0.5rem; }
+  .split { grid-template-columns: 1fr; }
+  .split-media { max-width: 420px; margin-inline: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  :root { --nav-h: 62px; }
+  .grid-2, .grid-3, .grid-4, .contact-grid, .form-grid, .facts { grid-template-columns: 1fr; }
+  .btn-row .btn, .toolbar .btn { width: 100%; }
+  .btn { padding-inline: 1.1rem; }
+  .card { padding: 1.25rem; }
+  .brand-text small { display: none; }
+  .hero-slogan { font-size: 1.1rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .float-card { padding: 0.5rem 0.8rem; }
+  .float-card strong { font-size: 1.1rem; }
+  .section-heading { margin-bottom: 1.75rem; }
+}
+
+@media (max-width: 360px) {
+  .container { width: calc(100% - 1.25rem); }
+  h1 { font-size: 1.75rem; }
+  .brand-text strong { font-size: 0.9rem; }
+}
+
+@media print {
+  .navbar, .footer, .btn-row, .toolbar { display: none !important; }
+  .page-header, .hero { background: none !important; color: #000 !important; }
+}
